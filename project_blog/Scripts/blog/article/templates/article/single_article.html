@@ -1,0 +1,75 @@
+{% extends 'index.html' %}
+
+{% block single_articles %}
+{% for article in output %}
+
+    <ul>
+            <li>
+                <h1 class="article-title">{{ article.article_title }}</h1>
+                {% if article.article_image %}
+                <img width="100%" src="{{ article.article_image.url }}" alt="Изображение">
+                {% endif %}
+                <p>
+                    {{ article.article_text }}
+                </p>
+            </li>
+
+            <li><a class="nav-link" href="{% url 'article:index'%}">Вернуться назад</a></li>
+
+            <li class="comments-title"><h2>Комментарии</h2></li>
+            {% if comments %}
+            {% for comment in comments %}
+
+            <li>
+
+                <div class="comments-container">
+
+                    <p><b> {% if comment.comments_from|slugify == 'admin' %} &#127877; {% else %} 👻 {% endif %} {{ comment.comments_from }}</b> <span class="comments-date">{{ comment.comments_date }}</span></p>
+                    {% if change_comment and comment.id|slugify == comment_id %}
+                        <p class="comments-text" style="display: none">{{ comment.comments_text }}</p>
+                    {% else %}
+                        <p class="comments-text">{{ comment.comments_text }}</p>
+                    {% endif %}
+
+                    {% if comment.comments_from.id == user.id %}
+                    <form method="POST" action="{% url 'article:changecomment' article.id comment.id %}">
+                        {% csrf_token %}
+                        {% if change_comment and comment_id == comment.id|slugify %}
+                            {{ change_comment }}
+                            <input type="submit" value="Сохранить">
+                        {% endif %}
+
+{#                        {% if not change_comment %}#}
+                    <div class="wrapper-change-comment">
+                        <a href="{% url 'article:changecomment' article.id comment.id %}" class="nav-change nav-link">Изменить</a>
+                        <a href="{% url 'article:deletecomment' article.id comment.id %}" class="nav-change nav-link">Удалить</a>
+                    </div>
+{#                        {% endif %}#}
+                    </form>
+                    {% endif %}
+                </div>
+            </li>
+            {% endfor %}
+
+            {% else %}
+                <p>Комментарии отсутствуют</p>
+            {% endif %}
+
+    </ul>
+
+    {% if username %}
+        <p class="write-comment">Написать</p>
+        <form action="{% url 'article:addcomment' article.id %}" method="post">
+            {% csrf_token %}
+            <div class="comment-wrapper">
+                <p>{{ form.comments_text }}</p>
+                <input type="submit" value="Оставить комментарий">
+            </div>
+        </form>
+    {% endif %}
+
+{% endfor %}
+
+    <a class="nav-link single-link" href="{% url 'article:index' %}">Назад</a>
+
+{% endblock %}

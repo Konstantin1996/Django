@@ -1,0 +1,37 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Jura:300,400,500,600,700|Montserrat+Alternates:300,700&amp;subset=cyrillic" rel="stylesheet">
+    <title>Blog</title>
+</head>
+<body>
+    <main>
+        <nav>
+            <ul class="navigation-menu">
+                {% if username %}
+                <li class="navigation-item"><a class="nav-link" href="{% url 'login:logout' %}">Выйти {{ username }}</a></li>
+                {% else %}
+                <li class="navigation-item"><a href="{% url 'login:enter' %}">Войти</a></li>
+                {% endif %}
+            </ul>
+        </nav>
+        
+        {% block login %}{% endblock %}
+
+        <div class="container">
+                {% block articles%}{% endblock %}
+                {% block single_articles %}{% endblock %}
+        </div>
+
+        <div class="footer-container">
+                <p class="footer-text">Made by Konstantin with ❤️</p>
+        </div>
+    </main>
+
+
+
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'index.html' %}
+{% load staticfiles %}
+
+{% block login %}
+    <!-- {{ user }} -->
+
+    <div class="login-wrapper">
+        <form action="{% url 'login:enter' %}" method="post">
+                {% csrf_token %}
+                <label for="username">Логин</label>
+                <input class="form-control" type="text" name="username" id="username" placeholder="Введите логин" >
+                <label for="password">Пароль</label>
+                <input class="form-control" type="password" name="password" id="password" placeholder="Введите пароль">
+                <input type="submit" value="Войти">
+                {% if loginerror %}
+                    <p class="error-login">{{ loginerror }}</p>
+                {% endif %}
+                <a class="nav-link-simple login-link" href="{% url 'login:register' %}">Регистрация</a>
+                <a class="nav-link-simple login-link" href="{% url 'article:index' %}">Назад к блогу</a>
+
+        </form>
+
+    </div>
+{% endblock %}
+
+{% block register %}
+    gdfgf
+{% endblock %}

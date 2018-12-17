@@ -1,0 +1,18 @@
+{% extends 'index.html' %}
+
+{% block login %}
+    <div class="reg-wrapper">
+    <form action="{% url 'login:register' %}" method="POST">
+        <p class="reg-descr">{{ regdescr }}</p>
+        {% if form.errors %}
+            <p class="error-reg">Вы ввели неправильный логин или пароль</p>
+        {% endif %}
+        <ul>
+        {% csrf_token %}
+        {{ form.as_ul }}
+        </ul>
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+
+    </div>
+{% endblock %}

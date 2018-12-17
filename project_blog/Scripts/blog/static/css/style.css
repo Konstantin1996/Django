@@ -1,0 +1,319 @@
+:root {
+    --link-color: #009391;
+    --link-hov-color: #10a7b2;
+}
+
+html,body,main {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0px;
+    padding: 0px;
+    font-size: 20px;
+    font-family: 'Jura', sans-serif;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-link {
+    color: var(--link-color);
+    text-decoration: underline;
+}
+
+.nav-link-simple {
+    color: var(--link-color);
+}
+
+.nav-link-simple:hover {
+    color: var(--link-hov-color);
+}
+
+.nav-link:hover {
+    color: var(--link-hov-color);
+}
+
+.wrapper-change-comment {
+    padding-left: 0px;
+}
+
+.nav-change {
+    padding-right: 15px;
+}
+
+
+.article-title {
+    text-transform: uppercase;
+}
+
+.article-item {
+    margin: 100px 0;
+    border-left: 3px solid #f4f2f2;
+    border-right: 3px solid #ededed;
+    -webkit-box-shadow: 0px 13px 13px 4px rgba(244,242,242,1);
+    -moz-box-shadow: 0px 13px 13px 4px rgba(244,242,242,1);
+    box-shadow: 0px 5px 13px 4px rgba(244,242,242,1);
+    border-radius: 3px;
+    padding: 0px 30px;
+}
+
+.article-title,
+.main-header {
+    font-size: 48px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.article-item > .article-title:hover {
+    color: var(--link-color);
+}
+
+.article-item > .article-title:active {
+    color: var(--link-hov-color);
+}
+
+.article-text {
+    font-weight: 500;
+    line-height: 30px;
+    color: #595959;
+}
+
+.read-next {
+    color: var(--link-color);
+}
+
+.read-next:hover {
+    color: var(--link-hov-color);
+}
+
+.main-header {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    padding: 0 250px;
+}
+
+.navigation-menu {
+    padding: 0 250px;
+    display: flex;
+    align-items: center;
+    background: black;
+    height: 75px;
+}
+
+.navigation-item {
+    padding-left: 100px;
+}
+
+.navigation-item:first-child {
+    padding: 0;
+}
+
+.navigation-item > a {
+    color: white;
+    text-transform: uppercase;
+}
+
+.navigation-item > a:hover{
+    color: var(--link-hov-color);
+    text-transform: uppercase;
+}
+
+.navigation-bottom {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+}
+
+.pag-flag-down {
+    margin-right: 15px;
+}
+
+.pag-flag-up {
+    margin-left: 15px;
+}
+
+.navigation-bottom > .pag-item > a {
+    display: block;
+    padding: 10px;
+    margin: 0 10px;
+    text-align: center;
+    line-height: 9px;
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+}
+
+.navigation-bottom > .pag-item > a:hover {
+    display: block;
+    padding: 10px;
+    margin: 0 10px;
+    background: gray;
+    color: white;
+}
+
+.navigation-bottom > .pag-current > a {
+    background: black;
+    color: white;
+}
+
+.article-wrap-like {
+    display: flex;
+    justify-content: flex-end;
+    padding: 25px 0;
+}
+
+.article-wrap-like > .article-heart {
+    padding: 0 20px;
+}
+
+.login-wrapper {
+    height: 100%;
+}
+
+.login-wrapper > form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+input[type='submit'] {
+    color: white;
+    background: black;
+    border: 0;
+    width: 300px;
+    height: 40px;
+    margin-top: 15px;
+    text-transform: uppercase;
+}
+
+input[type='submit']:active {
+    color: var(--link-color);
+    -webkit-box-shadow: 0px 0px 5px 3px gray;
+    -moz-box-shadow: 0px 0px 5px 3px gray;
+    box-shadow: 0px 0px 5px 3px gray;
+}
+
+input[type='submit']:hover {
+    background: #383838;
+}
+
+
+.error-login {
+    position: absolute;
+    top: 25%;
+    color: red;
+}
+
+.error-reg {
+    position: absolute;
+    top: 40%;
+    color: red;
+}
+
+
+.errorlist {
+    display: none;
+}
+
+.reg-descr {
+    margin-bottom: 100px;
+}
+
+.login-link {
+    padding: 10px;
+}
+
+.helptext {
+    display: none;
+}
+
+.helptext > ul {
+    display: none;
+}
+
+.reg-wrapper {
+    height: 100%;
+}
+
+.reg-wrapper > form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100%;
+}
+
+.reg-wrapper > form > ul > li {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.form-control {
+    width: 300px;
+    height: 30px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.comments-title {
+    border-bottom: 2px solid rgb(0,0,0,0.1);
+}
+
+textarea {
+    resize: none;
+    width: 100%;
+    height: 50px;
+}
+
+.write-comment {
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.comments-date {
+    font-size: 18px;
+}
+
+.comments-text {
+    padding-left: 35px;
+}
+
+.footer-container {
+    height: 70px;
+    width: 100%;
+    color: white;
+    padding-top: 5px;
+    text-align: center;
+    background: gray;
+}
+
+.single-link {
+    padding: 20px 0;
+    /* padding-left: 35px; */
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px white inset;
+}
